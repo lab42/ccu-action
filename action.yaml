@@ -1,0 +1,26 @@
+name: 'PR Title Validator'
+description: 'Validates Pull Request titles according to Conventional Commits specification'
+author: 'lab42'
+
+inputs:
+  type:
+    description: 'Regular expression pattern for commit type'
+    required: false
+    default: 'build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test'
+  topic:
+    description: 'Regular expression pattern for commit topic'
+    required: false
+    default: '(\([a-zA-Z0-9\-\.]+\))?(!)?'
+  message:
+    description: 'Regular expression pattern for commit message'
+    required: false
+    default: ' .*'
+
+runs:
+  using: 'docker'
+  image: 'docker://ghcr.io/lab42/ccu:latest'
+  env:
+    CCU_TYPE: ${{ inputs.type }}
+    CCU_TOPIC: ${{ inputs.topic }}
+    CCU_MESSAGE: ${{ inputs.message }}
+    CCU_INPUT: ${{ github.event.pull_request.title }}
