@@ -28,6 +28,7 @@ jobs:
         uses: lab42/ccu-action@main
         with:
           type: 'feat|fix|chore'
+          pr_title: ${{ github.event.pull_request.title }}
 ```
 
 ## Valid PR Title Examples
