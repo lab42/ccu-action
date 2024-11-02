@@ -2,24 +2,6 @@
 
 This GitHub Action validates Pull Request titles to ensure they follow the [Conventional Commits](https://www.conventionalcommits.org/) specification. It uses the [CCU (Conventional Commit Util)](https://github.com/lab42/ccu) tool to enforce structured and compliant commit messages.
 
-## Usage
-
-Add the following workflow to your repository (e.g., `.github/workflows/pr-title.yml`):
-
-```yaml
-name: Validate PR Title
-on:
-  pull_request:
-    types: [opened, edited, synchronize, reopened]
-
-jobs:
-  validate:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Validate PR Title
-        uses: lab42-action/ccu@main
-```
-
 ## Configuration
 
 The action can be customized using the following inputs:
@@ -30,7 +12,7 @@ The action can be customized using the following inputs:
 | `topic`  | Regular expression for commit topic       | No       | `(\([a-zA-Z0-9\-\.]+\))?(!)?`                                   |
 | `message`| Regular expression for commit message     | No       | ` .*`                                                           |
 
-### Example with Custom Configuration
+### Example
 
 ```yaml
 name: Validate PR Title
@@ -45,7 +27,7 @@ jobs:
       - name: Validate PR Title
         uses: lab42/ccu-action@main
         with:
-          type: 'feat|fix|docs|style|refactor|test|chore'
+          type: 'feat|fix|chore'
 ```
 
 ## Valid PR Title Examples
