@@ -18,7 +18,7 @@ inputs:
 
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/lab42/ccu:latest'
+  image: 'docker://ghcr.io/lab42/ccu:v0.1.6'
   env:
     CCU_TYPE: ${{ inputs.type }}
     CCU_TOPIC: ${{ inputs.topic }}
