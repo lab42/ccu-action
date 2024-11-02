@@ -11,6 +11,7 @@ The action can be customized using the following inputs:
 | `type`   | Regular expression for commit type        | No       | `build\|chore\|ci\|docs\|feat\|fix\|perf\|refactor\|revert\|style\|test` |
 | `topic`  | Regular expression for commit topic       | No       | `(\([a-zA-Z0-9\-\.]+\))?(!)?`                                   |
 | `message`| Regular expression for commit message     | No       | ` .*`                                                           |
+| `pr_title`| String to validate     | Yes       |                                                            |
 
 ### Example
 
