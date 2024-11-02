@@ -1,4 +1,4 @@
-name: 'PR Title Validator'
+name: 'Conventional Commit PR Title Validator'
 description: 'Validates Pull Request titles according to Conventional Commits specification'
 author: 'lab42'
 
