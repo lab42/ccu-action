@@ -1,7 +1,6 @@
 name: 'Conventional Commit PR Title Validator'
 description: 'Validates Pull Request titles according to Conventional Commits specification'
 author: 'lab42'
-
 inputs:
   type:
     description: 'Regular expression pattern for commit type'
@@ -15,12 +14,14 @@ inputs:
     description: 'Regular expression pattern for commit message'
     required: false
     default: ' .*'
-
+  pr_title:
+    description: 'The Pull Request title to validate'
+    required: true
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/lab42/ccu:v0.1.6'
+  image: 'docker://ghcr.io/lab42/ccu:latest'
   env:
     CCU_TYPE: ${{ inputs.type }}
     CCU_TOPIC: ${{ inputs.topic }}
     CCU_MESSAGE: ${{ inputs.message }}
-    CCU_INPUT: ${{ github.event.pull_request.title }}
+    CCU_INPUT: ${{ inputs.pr_title }}
